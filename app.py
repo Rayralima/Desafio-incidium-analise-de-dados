@@ -34,19 +34,19 @@ anos_disponiveis = sorted(df_transacoes['data_transacao'].dt.year.unique())
 ano_selecionado = st.sidebar.selectbox("Selecione o Ano:", anos_disponiveis, key="multiselect_tipos")
 # Filtro de Tipo de Conta
 tipo_conta_selecionado = st.sidebar.selectbox("Selecione o Tipo de Conta:", df_contas['tipo_conta'].unique())
-anos_selecionados = st.sidebar.multiselect("Tipo", df_contas['tipo_conta'].unique(), default=tipo_conta_selecionado)
+anos_selecionados = st.sidebar.multiselect("Tipo", df_contas['tipo_conta'].unique(), default=tipo_conta_selecionado, key="multiselect_tipo")
 # Filtro de Região
 regiao_selecionada = st.sidebar.selectbox("Selecione o Estado:", df_agencias['uf'].unique())
-anos_selecionados = st.sidebar.multiselect("Estado", df_agencias['uf'].unique(), default=regiao_selecionada)
+anos_selecionados = st.sidebar.multiselect("Estado", df_agencias['uf'].unique(), default=regiao_selecionada, key="multiselect_estado")
 # Filtro de Status da Proposta de Crédito
 status_proposta_selecionado = st.sidebar.selectbox("Selecione o Status da Proposta de Crédito:", df_propostas_credito['status_proposta'].unique())
-anos_selecionados = st.sidebar.multiselect("Tipo", df_contas['tipo_conta'].unique(), default=tipo_conta_selecionado)
+anos_selecionados = st.sidebar.multiselect("Tipo", df_contas['tipo_conta'].unique(), default=tipo_conta_selecionado, key="filtro_tipo_conta")
 # Filtro de Tipo de Cliente
 tipo_cliente_selecionado = st.sidebar.selectbox("Selecione o Tipo de Cliente:", df_clientes['tipo_cliente'].unique())
-anos_selecionados = st.sidebar.multiselect("Tipo", df_clientes['tipo_cliente'].unique(), default=tipo_cliente_selecionado)
+anos_selecionados = st.sidebar.multiselect("Tipo", df_clientes['tipo_cliente'].unique(), default=tipo_cliente_selecionado, key="multiselect_tipo_cliente")
 # Filtro de Tipo de Agência
 tipo_agencia_selecionado = st.sidebar.selectbox("Selecione o Tipo de Agência:", df_agencias['tipo_agencia'].unique())
-anos_selecionados = st.sidebar.multiselect("Tipo", df_agencias['tipo_agencia'].unique(), default=tipo_agencia_selecionado)
+anos_selecionados = st.sidebar.multiselect("Tipo", df_agencias['tipo_agencia'].unique(), default=tipo_agencia_selecionado, key="multiselect_tipo_agencia")
 
 # --- Filtragem do DataFrame ---
 # O dataframe principal é filtrado com base nas seleções feitas na barra lateral.
