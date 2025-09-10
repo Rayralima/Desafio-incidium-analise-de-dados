@@ -9,8 +9,6 @@ import plotly.express as px
 import pycountry
 import streamlit as st
 
-# Configuração da Página do Streamlit
-
 st.set_page_config(
     page_title="Dashboard para o BanVic",
     page_icon="🏦",
@@ -33,7 +31,7 @@ st.sidebar.header("🔍 Filtros")
 # Filtro de Ano
 df_transacoes['data_transacao'] = pd.to_datetime(df_transacoes['data_transacao'], errors='coerce')
 anos_disponiveis = sorted(df_transacoes['data_transacao'].dt.year.unique())
-ano_selecionado = st.sidebar.selectbox("Selecione o Ano:", anos_disponiveis)
+ano_selecionado = st.sidebar.selectbox("Selecione o Ano:", anos_disponiveis, key="multiselect_tipos")
 # Filtro de Tipo de Conta
 tipo_conta_selecionado = st.sidebar.selectbox("Selecione o Tipo de Conta:", df_contas['tipo_conta'].unique())
 anos_selecionados = st.sidebar.multiselect("Tipo", df_contas['tipo_conta'].unique(), default=tipo_conta_selecionado)
